@@ -1,0 +1,47 @@
+/* Ensure the body takes up the full height of the viewport */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should grow to fill available space */
+main {
+  flex: 1; /* This ensures the main content takes up the remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling for header and footer */
+header, footer {
+  background-color: #003566;
+  color: #e5e5e5;
+  text-align: center;
+  padding: 1em 0;
+}
+
+/* Navigation buttons styling */
+.nav-header-btn {
+  color: #e5e5e5;
+  font-size: 1.4em;
+  text-decoration: none;
+  padding: 1em;
+}
+
+.nav-footer-btn {
+  color: #e5e5e5;
+  font-size: 1em;
+  text-decoration: underline;
+  padding: 1em;
+}
+
+/* Paragraph styling */
+p {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
