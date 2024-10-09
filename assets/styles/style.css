@@ -35,7 +35,7 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Match List Styles */
@@ -58,7 +58,7 @@ main {
   background-color: #f3f3f3;
   width: 60%; /* Take 60% of the container width */
   max-width: 600px; /* Limit max width for large screens */
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   border-radius: 15px;
   color: black;
@@ -80,10 +80,15 @@ main {
   font-size: 16px;
 }
 
-/* Team logos and city names arrangement Center logos and text */
 .match-info {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%; /* Les cartes prennent 90% de la largeur sur les petits écrans */
+  }
 }

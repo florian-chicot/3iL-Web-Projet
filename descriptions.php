@@ -9,42 +9,64 @@
 <body>
   <?php require_once 'header.php'; ?>
   <main>
+
+<?php
+// Connexion à la base de données
+$dsn = 'mysql:host=localhost;dbname=mes_matchs;charset=utf8';
+$user = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO($dsn, $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Erreur de connexion à la base de données : ' . $e->getMessage());
+}
+
+// Requête pour récupérer les matchs et les informations associées
+$sql = "
+    SELECT 
+      matchs.date_match,
+      matchs.sport,
+      matchs.competition,
+      matchs.domicile_score,
+      matchs.visiteur_score,
+      matchs.affluence,
+      e1.nom AS equipe_domicile,
+      e1.ville AS logo_domicile,
+      e2.nom AS equipe_visiteur,
+      e2.ville AS logo_visiteur
+    FROM matchs
+    JOIN equipes e1 ON matchs.domicile_equipe = e1.id
+    JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
+    ORDER BY matchs.date_match DESC
+";
+$stmt = $pdo->query($sql);
+$matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
     <section class="match-list">
       <div class="card-container">
+        <?php foreach($matchs as $match): ?>
         <div class="card">
           <div id="score-info" class="match-info">
-            <p id="equipe-domicile">Aix-Maurienne</p>
-            <img id="logo-equipe-domicile" src="assets/images/logo_equipe/Basketball_Aix-Maurienne.svg" class="team-logo" width="50">
-            <p id="score-domicile">91</p>
+            <p id="equipe-domicile"><?= htmlspecialchars($match['equipe_domicile']) ?></p>
+            <img id="logo-equipe-domicile" src="assets/images/logo_equipe/<?= htmlspecialchars($match['sport']).'_'.htmlspecialchars($match['logo_domicile']) ?>.svg" class="team-logo" width="50">
+            <p id="score-domicile"><?= htmlspecialchars($match['domicile_score']) ?></p>
             <p id="score-separateur">&nbsp;-&nbsp;</p>
-            <p id="score-visiteur">85</p>
-            <img id="logo-equipe-visiteur" src="assets/images/logo_equipe/Basketball_Vichy.svg" class="team-logo" width="50">
-            <p id="equipe-visiteur">Vichy</p>
+            <p id="score-visiteur"><?= htmlspecialchars($match['visiteur_score']) ?></p>
+            <img id="logo-equipe-visiteur" src="assets/images/logo_equipe/<?= htmlspecialchars($match['sport']).'_'.htmlspecialchars($match['logo_visiteur']) ?>.svg" class="team-logo" width="50">
+            <p id="equipe-visiteur"><?= htmlspecialchars($match['equipe_visiteur']) ?></p>
           </div>
           <div id="date-competition-info" class="match-info">
-            <p id="date" class="date">21 août 2019</p>
+            <p id="date" class="date"><?= date("d M Y", strtotime($match['date_match'])) ?></p>
             <p id="equipe-separateur">&nbsp;|&nbsp;</p>
-            <p id="competition">Amical</p>
+            <p id="competition"><?= htmlspecialchars($match['competition']) ?></p>
           </div>
         </div>
-        <div class="card">
-          <div id="score-info" class="match-info">
-            <p id="equipe-domicile">Aix-Maurienne</p>
-            <img id="logo-equipe-domicile" src="assets/images/logo_equipe/Basketball_Aix-Maurienne.svg" class="team-logo" width="50">
-            <p id="score-domicile">78</p>
-            <p id="score-separateur">&nbsp;-&nbsp;</p>
-            <p id="score-visiteur">86</p>
-            <img id="logo-equipe-visiteur" src="assets/images/logo_equipe/Basketball_Dijon.svg" class="team-logo" width="50">
-            <p id="equipe-visiteur">Dijon</p>
-          </div>
-          <div id="date-competition-info" class="match-info">
-            <p id="date" class="date">24 août 2019</p>
-            <p id="equipe-separateur">&nbsp;|&nbsp;</p>
-            <p id="competition">Amical</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+  </section>
+
   </main>
   <?php require_once 'footer.php'; ?>
 </body>
