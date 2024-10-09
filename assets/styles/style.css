@@ -1,4 +1,4 @@
-/* Ensure the body takes up the full height of the viewport */
+/* Global Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -8,15 +8,6 @@ body {
   min-height: 100vh;
 }
 
-/* Main content should grow to fill available space */
-main {
-  flex: 1; /* This ensures the main content takes up the remaining space */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Styling for header and footer */
 header, footer {
   background-color: #003566;
   color: #e5e5e5;
@@ -24,24 +15,75 @@ header, footer {
   padding: 1em 0;
 }
 
-/* Navigation buttons styling */
-.nav-header-btn {
+.nav-header-btn, .nav-footer-btn {
   color: #e5e5e5;
-  font-size: 1.4em;
   text-decoration: none;
   padding: 1em;
 }
 
-.nav-footer-btn {
-  color: #e5e5e5;
-  font-size: 1em;
-  text-decoration: underline;
-  padding: 1em;
+.nav-header-btn {
+  font-size: 1.4em;
 }
 
-/* Paragraph styling */
-p {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+.nav-footer-btn {
+  font-size: 1em;
+  text-decoration: underline;
+}
+
+/* Main content should fill the available space */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Match List Styles */
+.match-list {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Card container styling */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Center the cards with even spacing */
+  gap: 20px; /* Spacing between cards */
+}
+
+/* Card styling */
+.card {
+  background-color: #f3f3f3;
+  width: 60%; /* Take 60% of the container width */
+  max-width: 600px; /* Limit max width for large screens */
+  justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card img {
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slight increase on hover */
+}
+
+.card p {
+  margin: 0px 0;
+  font-size: 16px;
+}
+
+/* Team logos and city names arrangement Center logos and text */
+.match-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.5em;
 }

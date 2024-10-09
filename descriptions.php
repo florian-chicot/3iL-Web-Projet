@@ -12,29 +12,36 @@
     <section class="match-list">
       <div class="card-container">
         <div class="card">
-          <p>Basketball</p>
-          <p></p>
-          <p>Coupe de France</p>
-          <p>Toulouse vs Nantes</p>
-          <p><img src="assets\images\logo_equipe\BasketClubToulouse_2020-2023.svg" width="50">Toulouse vs Nantes<img src="assets\images\logo_equipe\BasketClubNantes_2017--.svg" width="50"></p>
-          <p>59 - 73</p>
-          <p>Petit Palais des Sports</p>
+          <div id="score-info" class="match-info">
+            <p id="equipe-domicile">Aix-Maurienne</p>
+            <img id="logo-equipe-domicile" src="assets/images/logo_equipe/Basketball_Aix-Maurienne.svg" class="team-logo" width="50">
+            <p id="score-domicile">91</p>
+            <p id="score-separateur">&nbsp;-&nbsp;</p>
+            <p id="score-visiteur">85</p>
+            <img id="logo-equipe-visiteur" src="assets/images/logo_equipe/Basketball_Vichy.svg" class="team-logo" width="50">
+            <p id="equipe-visiteur">Vichy</p>
+          </div>
+          <div id="date-competition-info" class="match-info">
+            <p id="date" class="date">21 août 2019</p>
+            <p id="equipe-separateur">&nbsp;|&nbsp;</p>
+            <p id="competition">Amical</p>
+          </div>
         </div>
         <div class="card">
-          <p>Rugby</p>
-          <p></p>
-          <p>Champions Cup</p>
-          <p><img src="assets\images\logo_equipe\RugbyClubToulouse_2016--.svg" width="50">Toulouse vs Ulster<img src="assets\images\logo_equipe\RugbyClubUlster_1999--.svg" width="50"></p>
-          <p>20 - 26</p>
-          <p>Stadium de Toulouse</p>
-        </div>
-        <div class="card">
-          <p>Basketball</p>
-          <p>Playoffs</p>
-          <p>Nationale 1</p>
-          <p><img src="assets\images\logo_equipe\BasketClubToulouse_2020-2023.svg" width="50">Toulouse vs Chartres<img src="assets\images\logo_equipe\BasketClubChartres_2018-2023.svg" width="50"></p>
-          <p>93 - 90</p>
-          <p>Petit Palais des Sports</p>
+          <div id="score-info" class="match-info">
+            <p id="equipe-domicile">Aix-Maurienne</p>
+            <img id="logo-equipe-domicile" src="assets/images/logo_equipe/Basketball_Aix-Maurienne.svg" class="team-logo" width="50">
+            <p id="score-domicile">78</p>
+            <p id="score-separateur">&nbsp;-&nbsp;</p>
+            <p id="score-visiteur">86</p>
+            <img id="logo-equipe-visiteur" src="assets/images/logo_equipe/Basketball_Dijon.svg" class="team-logo" width="50">
+            <p id="equipe-visiteur">Dijon</p>
+          </div>
+          <div id="date-competition-info" class="match-info">
+            <p id="date" class="date">24 août 2019</p>
+            <p id="equipe-separateur">&nbsp;|&nbsp;</p>
+            <p id="competition">Amical</p>
+          </div>
         </div>
       </div>
     </section>
