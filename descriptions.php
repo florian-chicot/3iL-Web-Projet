@@ -11,9 +11,9 @@
   <main>
     <?php
     // Connexion à la base de données
-    $dsn = 'mysql:host=localhost;dbname=mes_matchs;charset=utf8';
-    $user = 'root';
-    $password = '';
+    $dsn = 'mysql:host=mysql-florian-chicot-3il.alwaysdata.net;dbname=florian-chicot-3il_mes-matchs;charset=utf8';
+    $user = '380954_admin';
+    $password = 'e92X4nqD';
 
     try {
         $pdo = new PDO($dsn, $user, $password);
