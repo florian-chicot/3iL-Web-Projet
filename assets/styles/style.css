@@ -40,30 +40,44 @@ main {
 
 /* Match List Styles */
 .match-list {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
+  width: 90%;
+  /* max-width: 1200px; */
 }
 
 /* Card container styling */
 .card-container {
+  list-style-type: none;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; /* Center the cards with even spacing */
-  gap: 20px; /* Spacing between cards */
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Rendre toute la carte cliquable */
+.card-link {
+  text-decoration: none; /* Retire le soulignement du lien */
+  pointer-events: auto; /* Autoriser les clics sur le lien */
+  color: inherit; /* Hérite la couleur du texte du parent */
 }
 
 /* Card styling */
-.card {
-  background-color: #f3f3f3;
-  width: 60%; /* Take 60% of the container width */
-  max-width: 600px; /* Limit max width for large screens */
-  justify-content: flex-start;
-  padding: 20px;
+.card {  
+  background: #EEEEEE;
+  width: 100%;
   border-radius: 15px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  user-select: none;
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .card img {
@@ -71,8 +85,9 @@ main {
   margin: 0 10px;
 }
 
+/* Augmentation légère au survol */
 .card:hover {
-  transform: scale(1.02); /* Slight increase on hover */
+  transform: scale(1.01);
 }
 
 .card p {
@@ -84,11 +99,153 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.match-details {
+  width: 600px;
+}
+
+.match-info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.match-info-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Bahnschrift Semicondensed';
+}
+
+.match-info-list li:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.venue-container {
+  background: #222222;
+  color: #FFFFFF;
+  font-size: 1rem;
+  text-align: right;
+  letter-spacing: 0.05rem;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.date-container {
+  background: #EEEEEE;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.score-container {
+  background: #EEEEEE;
+}
+
+.match-score {
+  background: #EEEEEE;
+  width: 40%;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: 'Bahnschrift Semicondensed';
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.match-team-home {
+  background: #EEEEEE;
+  width: 30%;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.match-team-away {
+  background: #EEEEEE;
+  width: 30%;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.match-team-home img {
+  width: 80px;
+}
+
+.match-team-away img {
+  width: 80px;
+}
+
+.competition-container {
+  background: #EEEEEE;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.location-container {
+  background: #EEEEEE;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #999;
+  padding-bottom: 0.5rem;
+}
+
+.attendance-container {
+  background: #222;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.05rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 @media (max-width: 600px) {
   .card {
-    width: 90%; /* Les cartes prennent 90% de la largeur sur les petits écrans */
+    width: 90%;
+  }
+
+  .match-details {
+    padding: 10px;
+    width: 90%;
+  }
+
+  .match-info-list li {
+    font-size: 16px;
+  }
+
+  .match-info-list img {
+    width: 40px;
   }
 }
