@@ -38,6 +38,11 @@ main {
   align-items: flex-start;
 }
 
+p {
+  margin: 0px 0;
+  font-size: 16px;
+}
+
 /* Match List Styles */
 .match-list {
   width: 90%;
@@ -45,28 +50,24 @@ main {
 }
 
 /* Card container styling */
-.card-container {
+.match-list-card-container {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
 /* Rendre toute la carte cliquable */
-.card-link {
+.match-list-card-link {
   text-decoration: none; /* Retire le soulignement du lien */
-  pointer-events: auto; /* Autoriser les clics sur le lien */
   color: inherit; /* Hérite la couleur du texte du parent */
 }
 
 /* Card styling */
-.card {  
+.match-list-card {  
   background: #EEEEEE;
-  width: 100%;
   border-radius: 15px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -78,24 +79,20 @@ main {
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-.card img {
+.match-list-card img {
   vertical-align: middle;
   margin: 0 10px;
 }
 
 /* Augmentation légère au survol */
-.card:hover {
+.match-list-card:hover {
   transform: scale(1.01);
 }
 
-.card p {
-  margin: 0px 0;
-  font-size: 16px;
-}
-
-.match-info {
+.match-list-card-match-info {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,11 +100,11 @@ main {
   padding-bottom: 0.2em;
 }
 
-.match-details {
-  width: 600px;
+.match-list-card-team-logo {
+  width: 50px;
 }
 
-.match-info-list {
+.match-details-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -117,7 +114,7 @@ main {
   width: 100%;
 }
 
-.match-info-list li {
+.match-details-list li {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -125,22 +122,27 @@ main {
   font-family: 'Bahnschrift Semicondensed';
 }
 
-.match-info-list li:nth-child(3) {
+.match-details-list li:nth-child(3) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
 }
 
-.team-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.match-details-team-home, .match-details-team-away, .match-details-score, .match-details-date-container, .match-details-score-container, .match-details-competition-container, .match-details-location-container, .match-details-attendance-container {
+  background: #EEEEEE;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.venue-container {
-  background: #222222;
-  color: #FFFFFF;
+.match-details-venue-container, .match-details-attendance-container {
+  background: #222;
+  color: #FFF;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.match-details-venue-container {
   font-size: 1rem;
   text-align: right;
   letter-spacing: 0.05rem;
@@ -148,85 +150,56 @@ main {
   border-top-left-radius: 20px;
 }
 
-.date-container {
-  background: #EEEEEE;
+.match-details-team-home, .match-details-team-away {
+  width: 30%;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.match-details-team-logo {
+  width: 80px;
+}
+
+.match-details-score {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: 500;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-family: 'Bahnschrift Semicondensed';
+}
+
+.match-details-date-container {
   text-transform: uppercase;
   font-size: 2.5rem;
   font-weight: 500;
 }
 
-.score-container {
-  background: #EEEEEE;
-}
-
-.match-score {
-  background: #EEEEEE;
-  width: 40%;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 500;
-  font-family: 'Bahnschrift Semicondensed';
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.match-team-home {
-  background: #EEEEEE;
-  width: 30%;
-  text-align: center;
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.match-team-away {
-  background: #EEEEEE;
-  width: 30%;
-  text-align: center;
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.match-team-home img {
-  width: 80px;
-}
-
-.match-team-away img {
-  width: 80px;
-}
-
-.competition-container {
-  background: #EEEEEE;
+.match-details-competition-container {
   text-transform: uppercase;
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
 }
 
-.location-container {
-  background: #EEEEEE;
+.match-details-location-container {
   text-transform: uppercase;
   font-size: 1rem;
   color: #999;
-  padding-bottom: 0.5rem;
 }
 
-.attendance-container {
-  background: #222;
-  color: #FFF;
+.match-details-attendance-container {
   text-transform: uppercase;
   font-size: 2rem;
   letter-spacing: 0.05rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -241,11 +214,11 @@ main {
     width: 90%;
   }
 
-  .match-info-list li {
+  .match-details-list li {
     font-size: 16px;
   }
 
-  .match-info-list img {
+  .match-details-list img {
     width: 40px;
   }
 }

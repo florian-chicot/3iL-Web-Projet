@@ -60,26 +60,26 @@
             ?>
             <section class="match-details">
               <h2><?= htmlspecialchars($match['equipe_domicile']) ?> vs <?= htmlspecialchars($match['equipe_visiteur']) ?></h2>
-              <ul class="match-info-list">
-                <li class="venue-container"><?= htmlspecialchars($match['stade_nom']) ?></li>
-                <li class="date-container"><?= date("d M Y", strtotime($match['date_match'])) ?></li>
-                <li class="image-container"><img src="assets\images\IMGViewer\Match_<?= htmlspecialchars($match['id']).'_600x450' ?>.jpg" width="600" alt=""></li>
+              <ul class="match-details-list">
+                <li class="match-details-venue-container"><?= htmlspecialchars($match['stade_nom']) ?></li>
+                <li class="match-details-date-container"><?= date("j M Y", strtotime($match['date_match'])) ?></li>
+                <li class="match-details-image-container"><img src="assets\images\IMGViewer\Match_<?= htmlspecialchars($match['id']).'_600x450' ?>.jpg" width="600" alt=""></li>
                 <li class="score-container">
-                  <div class="match-team-home">
-                    <img src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_domicile']) ?>.svg" class="team-logo" alt="Logo domicile">
+                  <div class="match-details-team-home">
+                    <img class="match-details-team-logo" src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_domicile']) ?>.svg" class="team-logo" alt="Logo domicile">
                     <span><?= htmlspecialchars($match['ville_domicile']) ?></span>
                   </div>
-                  <div class="match-score">
-                    <p><?= htmlspecialchars($match['domicile_score']) ?> - <?= htmlspecialchars($match['visiteur_score']) ?></p>
+                  <div class="match-details-score">
+                    <span><?= htmlspecialchars($match['domicile_score']) ?> - <?= htmlspecialchars($match['visiteur_score']) ?></span>
                   </div>
-                  <div class="match-team-away">
-                    <img src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_visiteur']) ?>.svg" class="team-logo" alt="Logo visiteur">
+                  <div class="match-details-team-away">
+                    <img class="match-details-team-logo" src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_visiteur']) ?>.svg" class="team-logo" alt="Logo visiteur">
                     <span><?= htmlspecialchars($match['ville_visiteur']) ?></span>
                   </div>
                 </li>
-                <li class="competition-container"><?= htmlspecialchars($match['competition']) ?></li>
-                <li class="location-container"><?= htmlspecialchars($match['stade_ville']) ?>, <?= htmlspecialchars($match['stade_pays']) ?></li>
-                <li class="attendance-container">Affluence <?= htmlspecialchars($match['affluence']) ?></li>
+                <li class="match-details-competition-container"><?= htmlspecialchars($match['competition']) ?></li>
+                <li class="match-details-location-container"><?= htmlspecialchars($match['stade_ville']) ?>, <?= htmlspecialchars($match['stade_pays']) ?></li>
+                <li class="match-details-attendance-container"><?= htmlspecialchars(number_format(num: $match['affluence'], thousands_separator: ' ')) ?> spectateurs</li>
               </ul>
             </section>
             <?php
