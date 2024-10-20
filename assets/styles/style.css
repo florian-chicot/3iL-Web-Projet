@@ -30,7 +30,6 @@ header, footer {
   text-decoration: underline;
 }
 
-/* Main content should fill the available space */
 main {
   flex: 1;
   display: flex;
@@ -43,65 +42,90 @@ p {
   font-size: 16px;
 }
 
-/* Match List Styles */
-.match-list {
+  /* -- Match List Styles -- */
+  .match-list {
+    width: 90%;
+  }
+
+  /* Card container styling */
+  .match-list-card-container {
+    list-style-type: none;
+    display: flex;
+    /* flex-direction: column; */
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Card styling */
+  .match-list-card {  
+    flex: 40%;
+    background: #EEEEEE;
+    border-radius: 15px;
+    margin: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    user-select: none;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Rendre toute la carte cliquable */
+  .match-list-card-link {
+    text-decoration: none; /* Retire le soulignement du lien */
+    color: inherit; /* Hérite la couleur du texte du parent */
+  }
+
+  /* Augmentation légère au survol */
+  .match-list-card:hover {
+    transform: scale(1.01);
+  }
+
+  .match-list-card-match-info, .match-list-card-match-date-compet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2em;
+  }
+
+  .match-list-card-equipe-domicile {
+    text-align: end;
+    width: 30%;
+  }
+
+  .match-list-card-equipe-visiteur {
+    text-align: start;
+    width: 30%;
+  }
+
+  .match-list-card-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 20%;
+    max-width: 50px;
+  }
+
+  .match-list-card-team-logo {
+    vertical-align: middle;
+    margin: 0 0.5em;
+    width: 10%;
+    max-width: 50px;
+  }
+
+/* -- Match Detail Styles -- */
+.match-details {
   width: 90%;
-  /* max-width: 1200px; */
-}
-
-/* Card container styling */
-.match-list-card-container {
-  list-style-type: none;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Rendre toute la carte cliquable */
-.match-list-card-link {
-  text-decoration: none; /* Retire le soulignement du lien */
-  color: inherit; /* Hérite la couleur du texte du parent */
-}
-
-/* Card styling */
-.match-list-card {  
-  background: #EEEEEE;
-  border-radius: 15px;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  user-select: none;
-  color: black;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.match-list-card img {
-  vertical-align: middle;
-  margin: 0 10px;
-}
-
-/* Augmentation légère au survol */
-.match-list-card:hover {
-  transform: scale(1.01);
-}
-
-.match-list-card-match-info {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-}
-
-.match-list-card-team-logo {
-  width: 50px;
 }
 
 .match-details-list {
@@ -111,7 +135,9 @@ p {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
 }
 
 .match-details-list li {
@@ -151,6 +177,7 @@ p {
 }
 
 .match-details-team-home, .match-details-team-away {
+  background-color: aqua;
   width: 30%;
   text-align: center;
   font-size: 2rem;
@@ -167,6 +194,7 @@ p {
 }
 
 .match-details-score {
+  background-color: aquamarine;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -182,6 +210,10 @@ p {
   text-transform: uppercase;
   font-size: 2.5rem;
   font-weight: 500;
+}
+
+.match-details-image-container img {
+  width: 100%;
 }
 
 .match-details-competition-container {
@@ -202,23 +234,4 @@ p {
   letter-spacing: 0.05rem;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-}
-
-@media (max-width: 600px) {
-  .card {
-    width: 90%;
-  }
-
-  .match-details {
-    padding: 10px;
-    width: 90%;
-  }
-
-  .match-details-list li {
-    font-size: 16px;
-  }
-
-  .match-details-list img {
-    width: 40px;
-  }
 }
