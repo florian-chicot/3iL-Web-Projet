@@ -51,6 +51,38 @@ header nav div a:hover {
   cursor: pointer;
   display: none;
 }
+
+footer nav {
+  height: calc(70px - 2em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer nav p {
+  font-size: 1rem;
+}
+
+footer nav div {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+footer nav div a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f1f2f6;
+  padding: 0 0.5rem;
+}
+
+footer nav div a:hover {
+  text-decoration: underline;
+}
  
 body {
   font-family: 'Segoe UI', sans-serif;
