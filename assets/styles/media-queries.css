@@ -1,5 +1,4 @@
 @media (max-width: 800px) {
-
   /* -- Match List Styles -- */
   .match-list {
     width: 95%;
@@ -7,187 +6,146 @@
 
   /* Card container styling */
   .match-list-card-container {
-    list-style-type: none;
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0;
-    padding: 0;
   }
 
   /* Card styling */
   .match-list-card {  
-    background: #EEEEEE;
-    border-radius: 15px;
     margin: 0.5rem 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    user-select: none;
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  /* Rendre toute la carte cliquable */
-  .match-list-card-link {
-    text-decoration: none; /* Retire le soulignement du lien */
-    color: inherit; /* Hérite la couleur du texte du parent */
-  }
-
-  /* Augmentation légère au survol */
-  .match-list-card:hover {
-    transform: scale(1.01);
-  }
-
-  .match-list-card-match-info, .match-list-card-match-date-compet {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2em;
   }
 
   .match-list-card-equipe-domicile {
-    text-align: end;
     width: 27.5%;
   }
 
   .match-list-card-equipe-visiteur {
-    text-align: start;
     width: 27.5%;
   }
 
-  .match-list-card-score {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 20%;
-    max-width: 50px;
-  }
-
   .match-list-card-team-logo {
-    vertical-align: middle;
-    margin: 0 0.5em;
     width: 12.5%;
-    max-width: 50px;
   }
+}
 
+@media (max-width: 700px) {
   /* -- Match Detail Styles -- */
-  .match-details {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .match-details-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 600px;
-  }
-
-  .match-details-list li {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
-    font-family: 'Bahnschrift Semicondensed';
-  }
-
-  .match-details-list li:nth-child(3) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
   }
 
   .match-details-team-home, .match-details-team-away, .match-details-score, .match-details-date-container, .match-details-score-container, .match-details-competition-container, .match-details-location-container, .match-details-attendance-container {
-    background: #EEEEEE;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.2rem 0;
   }
 
-  .match-details-venue-container, .match-details-attendance-container {
-    background: #222;
-    color: #FFF;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+  .match-details-team-home-great, .match-details-team-away-great {
+    display: none;
   }
 
-  .match-details-venue-container {
-    font-size: 1rem;
-    text-align: right;
-    letter-spacing: 0.05rem;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+  .match-details-team-home-small, .match-details-team-away-small {
+    display: inline;
   }
 
   .match-details-team-home, .match-details-team-away {
-    background-color: aqua;
-    width: 30%;
-    text-align: center;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 20%;
   }
-
+  
   .match-details-team-logo {
-    width: 80px;
+    padding-top: 0.5rem;
   }
-
+  
   .match-details-score {
-    background-color: aquamarine;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    font-weight: 500;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    font-family: 'Bahnschrift Semicondensed';
-  }
-
-  .match-details-date-container {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    font-weight: 500;
-  }
-
-  .match-details-image-container img {
-    width: 100%;
+    width: 60%;
+    font-size: 3.5rem;
   }
 
   .match-details-competition-container {
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 0.1rem;
-  }
-
-  .match-details-location-container {
-    text-transform: uppercase;
-    font-size: 1rem;
-    color: #999;
+    font-size: 1.2rem;
+    letter-spacing: 0rem;
   }
 
   .match-details-attendance-container {
-    text-transform: uppercase;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* -- Header --  */
+  header nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 90px);
+    background-color: #758bfd;
+    transition: left 0.3s ease;
+    padding-top: 20px;
+  }
+
+  header nav ul.show {
+    left: 0;
+  }
+
+  .checkbtn {
+    display: block;
+    color: #f1f2f6;
+  }
+
+  header nav ul li {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  header nav ul li a {
+    padding: 1.5rem;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  /* -- Match Detail Styles -- */
+  .match-details-venue-container {
+    font-size: 0.8rem;
+  }
+
+  .match-details-date-container {
     font-size: 2rem;
-    letter-spacing: 0.05rem;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+  }
+
+  .match-details-team-home, .match-details-team-away {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+  
+  .match-details-team-logo {
+    width: 60px;
+  }
+
+  .match-details-score {
+    font-size: 2.7rem;
+    padding: 0 0.8rem;
+  }
+
+  .match-details-competition-container {
+    font-size: 1rem;
+  }
+
+  .match-details-location-container {
+    font-size: 0.8rem;
+  }
+
+  .match-details-attendance-container {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .match-details-score {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 0 0.6rem;
   }
 }

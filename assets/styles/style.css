@@ -1,4 +1,56 @@
 /* Global Styles */
+header, footer {
+  background-color: #758bfd;
+  color: #f1f2f6;
+  padding: 1em;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav h1 {
+  font-weight: bold;
+  padding: 1rem;
+  margin: 0;
+}
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+header nav ul li {
+  display: flex;
+  align-items: center;
+  line-height: 1rem;
+}
+
+header nav ul li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f1f2f6;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+header nav ul li a:hover {
+  background-color: #aeb8fe;
+  transition: 0.3s;
+}
+
+.checkbtn {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+ 
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -8,33 +60,15 @@ body {
   min-height: 100vh;
 }
 
-header, footer {
-  background-color: #003566;
-  color: #e5e5e5;
-  text-align: center;
-  padding: 1em 0;
-}
-
-.nav-header-btn, .nav-footer-btn {
-  color: #e5e5e5;
-  text-decoration: none;
-  padding: 1em;
-}
-
-.nav-header-btn {
-  font-size: 1.4em;
-}
-
-.nav-footer-btn {
-  font-size: 1em;
-  text-decoration: underline;
-}
-
 main {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+h2 {
+  text-wrap: balance;
 }
 
 p {
@@ -51,10 +85,7 @@ p {
   .match-list-card-container {
     list-style-type: none;
     display: flex;
-    /* flex-direction: column; */
-    /* flex-direction: row; */
     flex-wrap: wrap;
-    /* width: 100%; */
     margin: 0;
     padding: 0;
   }
@@ -65,12 +96,10 @@ p {
     background: #EEEEEE;
     border-radius: 15px;
     margin: 0.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     user-select: none;
     color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -80,11 +109,12 @@ p {
   .match-list-card-link {
     text-decoration: none; /* Retire le soulignement du lien */
     color: inherit; /* Hérite la couleur du texte du parent */
+    padding: 1rem 0;
   }
 
   /* Augmentation légère au survol */
   .match-list-card:hover {
-    transform: scale(1.01);
+    transform: scale(1.03);
   }
 
   .match-list-card-match-info, .match-list-card-match-date-compet {
@@ -157,15 +187,13 @@ p {
 
 .match-details-team-home, .match-details-team-away, .match-details-score, .match-details-date-container, .match-details-score-container, .match-details-competition-container, .match-details-location-container, .match-details-attendance-container {
   background: #EEEEEE;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
 }
 
 .match-details-venue-container, .match-details-attendance-container {
   background: #222;
   color: #FFF;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding: 0.2rem 0;
 }
 
 .match-details-venue-container {
@@ -176,8 +204,15 @@ p {
   border-top-left-radius: 20px;
 }
 
+.match-details-team-home-great, .match-details-team-away-great {
+  display: inline;
+}
+
+.match-details-team-home-small, .match-details-team-away-small {
+  display: none;
+}
+
 .match-details-team-home, .match-details-team-away {
-  background-color: aqua;
   width: 30%;
   text-align: center;
   font-size: 2rem;
@@ -185,8 +220,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 }
 
 .match-details-team-logo {
@@ -194,15 +228,13 @@ p {
 }
 
 .match-details-score {
-  background-color: aquamarine;
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 4rem;
   font-weight: 500;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
   font-family: 'Bahnschrift Semicondensed';
 }
 

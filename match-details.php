@@ -37,9 +37,11 @@
           matchs.visiteur_score,
           matchs.affluence,
           e1.nom AS equipe_domicile,
+          e1.trigramme AS equipe_domicile_tri,
           e1.ville AS ville_domicile,
           e1.logo AS logo_domicile,
           e2.nom AS equipe_visiteur,
+          e2.trigramme AS equipe_visiteur_tri,
           e2.ville AS ville_visiteur,
           e2.logo AS logo_visiteur,
           stades.nom AS stade_nom,
@@ -65,17 +67,19 @@
         <li class="match-details-venue-container"><?= htmlspecialchars($match['stade_nom']) ?></li>
         <li class="match-details-date-container"><?= date("j M Y", strtotime($match['date_match'])) ?></li>
         <li class="match-details-image-container"><img src="assets\images\IMGViewer\Match_<?= htmlspecialchars($match['id']).'_600x450' ?>.jpg" alt=""></li>
-        <li class="score-container">
+        <li class="match-details-score-container">
           <div class="match-details-team-home">
             <img class="match-details-team-logo" src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_domicile']) ?>.svg" class="team-logo" alt="Logo domicile">
-            <span><?= htmlspecialchars($match['ville_domicile']) ?></span>
+            <span class="match-details-team-home-great"><?= htmlspecialchars($match['ville_domicile']) ?></span>
+            <span class="match-details-team-home-small"><?= htmlspecialchars($match['equipe_domicile_tri']) ?></span>
           </div>
           <div class="match-details-score">
             <span><?= htmlspecialchars($match['domicile_score']) ?> - <?= htmlspecialchars($match['visiteur_score']) ?></span>
           </div>
           <div class="match-details-team-away">
             <img class="match-details-team-logo" src="assets/images/logo_equipe/<?= htmlspecialchars($match['logo_visiteur']) ?>.svg" class="team-logo" alt="Logo visiteur">
-            <span><?= htmlspecialchars($match['ville_visiteur']) ?></span>
+            <span class="match-details-team-home-great"><?= htmlspecialchars($match['ville_visiteur']) ?></span>
+            <span class="match-details-team-home-small"><?= htmlspecialchars($match['equipe_visiteur_tri']) ?></span>
           </div>
         </li>
         <li class="match-details-competition-container"><?= htmlspecialchars($match['competition']) ?></li>
