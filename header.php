@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <h1>MES MATCHS</h1>
+    <h1><a href="index.php">MES MATCHS</a></h1>
     <div id="nav-menu">
       <a href="index.php">Accueil</a>
       <a href="matches-list.php">Description</a>

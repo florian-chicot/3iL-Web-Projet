@@ -72,6 +72,10 @@
 
 @media (max-width: 600px) {
   /* -- Header --  */
+  header nav h1 a {
+    font-size: 1.8rem;
+  }
+
   header nav div {
     flex-direction: column;
     position: absolute;

@@ -13,8 +13,12 @@ header nav {
   align-items: center;
 }
 
-header nav h1 {
+header nav h1 a {
+  font-size: 2rem;
   font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f1f2f6;
   margin: 0;
 }
 
