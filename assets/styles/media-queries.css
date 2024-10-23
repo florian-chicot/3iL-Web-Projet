@@ -72,7 +72,7 @@
 
 @media (max-width: 600px) {
   /* -- Header --  */
-  header nav ul {
+  header nav div {
     flex-direction: column;
     position: absolute;
     top: 90px;
@@ -84,22 +84,19 @@
     padding-top: 20px;
   }
 
-  header nav ul.show {
+  header nav div.show {
     left: 0;
   }
 
-  .checkbtn {
+  .burger-menu-btn {
     display: block;
     color: #f1f2f6;
   }
 
-  header nav ul li {
+  header nav div a {
     display: block;
     text-align: center;
     margin-bottom: 15px;
-  }
-
-  header nav ul li a {
     padding: 1.5rem;
     display: block;
   }

@@ -6,6 +6,7 @@ header, footer {
 }
 
 header nav {
+  height: calc(90px - 2em);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,11 +15,10 @@ header nav {
 
 header nav h1 {
   font-weight: bold;
-  padding: 1rem;
   margin: 0;
 }
 
-header nav ul {
+header nav div {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -26,13 +26,10 @@ header nav ul {
   flex-direction: row;
 }
 
-header nav ul li {
+header nav div a {
   display: flex;
   align-items: center;
   line-height: 1rem;
-}
-
-header nav ul li a {
   text-transform: uppercase;
   text-decoration: none;
   color: #f1f2f6;
@@ -40,12 +37,12 @@ header nav ul li a {
   border-radius: 10px;
 }
 
-header nav ul li a:hover {
+header nav div a:hover {
   background-color: #aeb8fe;
   transition: 0.3s;
 }
 
-.checkbtn {
+.burger-menu-btn {
   font-size: 30px;
   cursor: pointer;
   display: none;
@@ -266,4 +263,20 @@ p {
   letter-spacing: 0.05rem;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.error-code {
+  font-size: 10rem;
+}
+
+.error-message {
+  font-size: 5rem;
 }
