@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<images>
+    <image id="1">
+        <size size="600x450">
+            <src>assets\images\IMGViewer\Match_2_600x450.jpg</src>
+        </size>
+        <size size="450x450">
+            <src>assets\images\IMGViewer\Match_2_450x450.jpg</src>
+        </size>
+        <alt>Image 1</alt>
+    </image>
+    <image id="2">
+        <size size="600x450">
+            <src>assets\images\IMGViewer\Match_9_600x450.jpg</src>
+        </size>
+        <size size="450x450">
+            <src>assets\images\IMGViewer\Match_9_450x450.jpg</src>
+        </size>
+        <alt>Image 2</alt>
+    </image>
+    <image id="3">
+        <size size="600x450">
+            <src>assets\images\IMGViewer\Match_14_600x450.jpg</src>
+        </size>
+        <size size="450x450">
+            <src>assets\images\IMGViewer\Match_14_450x450.jpg</src>
+        </size>
+        <alt>Image 3</alt>
+    </image>
+</images>

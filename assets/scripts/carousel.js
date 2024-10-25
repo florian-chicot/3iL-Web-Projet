@@ -3,7 +3,7 @@ const carouselTrack = document.getElementById('carousel-track');
 
 function loadCarouselImages() {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'assets/images/IMGViewer/IMGViewer.xml', true);
+  xhr.open('GET', 'lib/IMGViewer.xml', true);
   xhr.onload = function() {
     if (this.status === 200) {
       const xml = this.responseXML;
@@ -14,8 +14,8 @@ function loadCarouselImages() {
 
         // Vérifier la taille de l'écran pour charger l'image appropriée
         if (window.matchMedia("(max-width: 600px)").matches) {
-          // Si l'écran est inférieur ou égal à 600px, charger l'image portrait (450x600)
-          src = image.querySelector('size[size="450x600"] src').textContent;
+          // Si l'écran est inférieur ou égal à 600px, charger l'image portrait (450x450)
+          src = image.querySelector('size[size="450x450"] src').textContent;
         } else {
           // Sinon, charger l'image paysage (1200x900)
           src = image.querySelector('size[size="600x450"] src').textContent;
