@@ -1,0 +1,45 @@
+.carousel {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+}
+.nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+.prev, .next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    max-width: 100%; /* La largeur du carousel s'adapte à l'écran */
+  }
+
+  .carousel-slide img {
+    width: 100%; /* Les images occupent toute la largeur de la fenêtre */
+    height: auto; /* La hauteur s'ajuste automatiquement */
+  }
+}
