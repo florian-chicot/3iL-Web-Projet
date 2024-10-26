@@ -2,7 +2,7 @@
 
 require_once 'Model.php';
 
-class ModelMatchs extends Model {
+class ModelMatch extends Model {
 
   private int $id;
   private string $sport;
@@ -135,33 +135,6 @@ class ModelMatchs extends Model {
   }
 
   public static function read($id) {
-    // $sql = "
-    //   SELECT 
-    //     matchs.id,
-    //     matchs.date_match,
-    //     matchs.sport,
-    //     matchs.domicile_score,
-    //     matchs.visiteur_score,
-    //     matchs.affluence,
-    //     e1.nom AS equipe_domicile,
-    //     e1.trigramme AS equipe_domicile_tri,
-    //     e1.ville AS ville_domicile,
-    //     e1.logo AS logo_domicile,
-    //     e2.nom AS equipe_visiteur,
-    //     e2.trigramme AS equipe_visiteur_tri,
-    //     e2.ville AS ville_visiteur,
-    //     e2.logo AS logo_visiteur,
-    //     stades.nom AS stade_nom,
-    //     stades.ville AS stade_ville,
-    //     stades.pays AS stade_pays,
-    //     competitions.nom AS competition
-    //   FROM matchs
-    //   JOIN equipes e1 ON matchs.domicile_equipe = e1.id
-    //   JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
-    //   JOIN stades ON matchs.stade = stades.id
-    //   JOIN competitions ON matchs.competition = competitions.id
-    //   WHERE matchs.id = :id
-    // ";
     $sql = "SELECT * FROM matchs WHERE matchs.id = :id";
 
     $values = array(
@@ -170,8 +143,35 @@ class ModelMatchs extends Model {
 
     $stmt = Model::getPDO()->prepare($sql);
     $stmt->execute($values);
-    $stmt->setFetchMode(PDO::FETCH_CLASS, "ModelMatchs");
+    $stmt->setFetchMode(PDO::FETCH_CLASS, "ModelMatch");
     return  $stmt->fetch();
   }
+}
 
-} 
+// $sql = "
+//   SELECT 
+//     matchs.id,
+//     matchs.date_match,
+//     matchs.sport,
+//     matchs.domicile_score,
+//     matchs.visiteur_score,
+//     matchs.affluence,
+//     e1.nom AS equipe_domicile,
+//     e1.trigramme AS equipe_domicile_tri,
+//     e1.ville AS ville_domicile,
+//     e1.logo AS logo_domicile,
+//     e2.nom AS equipe_visiteur,
+//     e2.trigramme AS equipe_visiteur_tri,
+//     e2.ville AS ville_visiteur,
+//     e2.logo AS logo_visiteur,
+//     stades.nom AS stade_nom,
+//     stades.ville AS stade_ville,
+//     stades.pays AS stade_pays,
+//     competitions.nom AS competition
+//   FROM matchs
+//   JOIN equipes e1 ON matchs.domicile_equipe = e1.id
+//   JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
+//   JOIN stades ON matchs.stade = stades.id
+//   JOIN competitions ON matchs.competition = competitions.id
+//   WHERE matchs.id = :id
+// ";

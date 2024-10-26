@@ -1,13 +1,13 @@
 <?php
 
-require_once File::build_path(array("model", "ModelMatchs.php"));
+require_once File::build_path(array("model", "ModelMatch.php"));
 
 class ControllerListOfMatches {
 
   public static function descriptionRoute() {
     //var_dump("blablou");
     //die();
-    $matchs = ModelMatchs::readAll();
+    $matchs = ModelMatch::readAll();
     $controller = 'listOfMatches';
     $view = 'ListOfMatches';
     $pagetitle = 'Liste des matchs';

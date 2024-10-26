@@ -1,14 +1,22 @@
 <?php
 
-require_once File::build_path(array("model", "ModelMatchs.php"));
+require_once File::build_path(array("model", "ModelCompetition.php"));
+require_once File::build_path(array("model", "ModelMatch.php"));
+require_once File::build_path(array("model", "ModelSport.php"));
+require_once File::build_path(array("model", "ModelStadium.php"));
+require_once File::build_path(array("model", "ModelTeam.php"));
 
 class ControllerMatch {
 
   public static function matchRoute() {
-    //var_dump("blablou");
-    //die();
     $id = $_GET["id"];
-    $match = ModelMatchs::read($id);
+    $match = ModelMatch::read($id);
+    $competition = ModelCompetition::read($match->getCompetition());
+    $sport = ModelSport::read($match->getSport());
+    $stade = ModelStadium::read($match->getStade());
+    $equipeDomicile = ModelTeam::read($match->getDomicileEquipe());
+    $equipeVisiteur = ModelTeam::read($match->getVisiteurEquipe());
+
     $controller = 'match';
     $view = 'Match';
     $pagetitle = 'Match';
