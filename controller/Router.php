@@ -4,9 +4,8 @@ require_once File::build_path(array("controller", "ControllerHome.php"));
 require_once File::build_path(array("controller", "ControllerListOfMatches.php"));
 require_once File::build_path(array("controller", "ControllerMatch.php"));
 
-
 if (!isset($_GET['action'])) {
-  $controller = 'Home';
+  $controller = 'home';
   $view = 'Home';
   $pagetitle = 'Accueil';
   $description ='Accueil du site web';
