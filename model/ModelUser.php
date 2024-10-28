@@ -13,7 +13,7 @@ class ModelUser extends Model {
     public function __construct($username = null, $password = null, $email = null) {
         if (!is_null($username) && !is_null($password)) {
             $this->username = $username;
-            $this->password = password_hash($password, PASSWORD_DEFAULT); // Hachage direct ici
+            $this->password = password_hash($password,  PASSWORD_BCRYPT);
             $this->email = $email;
         }
     }
@@ -46,7 +46,7 @@ class ModelUser extends Model {
     }
 
     public function setPassword(string $password): void {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = password_hash($password,  PASSWORD_BCRYPT);
     }
 
     public function setEmail(?string $email): void {
@@ -91,7 +91,7 @@ class ModelUser extends Model {
     public static function create($username, $password, $email = null) {
         $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
         $stmt = Model::getPDO()->prepare($sql);
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password,  PASSWORD_BCRYPT);
         $stmt->execute(['username' => $username, 'password' => $hashedPassword, 'email' => $email]);
         return Model::getPDO()->lastInsertId();
     }

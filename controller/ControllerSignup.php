@@ -17,6 +17,13 @@ class ControllerSignup {
     // Récupère les données du formulaire
     $username = $_POST['username'];
     $password = $_POST['password'];
+
+    // Vérification de la connexion à la base de données
+    try {
+        $pdo = Model::getPDO();
+    } catch (PDOException $e) {
+        die("Could not connect to the database: " . $e->getMessage());
+    }
     
     // Vérifie que le nom d'utilisateur est unique
     if (ModelUser::userExists($username)) {
@@ -27,12 +34,9 @@ class ControllerSignup {
       require File::build_path(array("view", "Base.php"));
       return;
     }
-
-    // Hash le mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
     // Crée un nouvel utilisateur
-    $user = new ModelUser($username, $hashedPassword);
+    $user = new ModelUser($username, $password);
     $user->save();
 
     // Redirige vers la page de connexion
