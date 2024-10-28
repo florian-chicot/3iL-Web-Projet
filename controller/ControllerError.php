@@ -2,8 +2,6 @@
 class ControllerError {
 
   public static function errorRoute() {
-    //var_dump("blablou");
-    //die();
     $controller = '.error';
     $view = '404';
     $pagetitle = 'Erreur 404';

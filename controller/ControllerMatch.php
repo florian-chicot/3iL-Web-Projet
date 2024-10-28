@@ -1,5 +1,4 @@
 <?php
-
 require_once File::build_path(array("model", "ModelCompetition.php"));
 require_once File::build_path(array("model", "ModelMatch.php"));
 require_once File::build_path(array("model", "ModelSport.php"));
@@ -24,5 +23,3 @@ class ControllerMatch {
     require File::build_path(array("view", "Base.php"));
   }
 }
-
-// ?controller=Matches&action=matchRoute
