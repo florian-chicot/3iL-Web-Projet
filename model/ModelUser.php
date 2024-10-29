@@ -9,12 +9,14 @@ class ModelUser extends Model {
     private string $password;
     private ?string $email;
     private string $created_at;
+    private string $role;
 
-    public function __construct($username = null, $password = null, $email = null) {
-        if (!is_null($username) && !is_null($password)) {
+    public function __construct($username = null, $password = null, $email = null, $role = "user") {
+        if (!is_null($username) && !is_null($password) && !is_null($role)) {
             $this->username = $username;
             $this->password = password_hash($password,  PASSWORD_BCRYPT);
             $this->email = $email;
+            $this->role = $role;
         }
     }
 
@@ -40,6 +42,10 @@ class ModelUser extends Model {
         return $this->created_at;
     }
 
+    public function getRole(): string {
+        return $this->role;
+    }
+
     // Setters
     public function setUsername(string $username): void {
         $this->username = $username;
@@ -61,16 +67,21 @@ class ModelUser extends Model {
         return $stmt->fetchColumn() > 0;
     }
 
+    public function isAdmin() {
+        return $this->role === 'admin';
+    }
+
     // Sauvegarde un utilisateur dans la base de données
     public function save() {
-      $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
-      $stmt = Model::getPDO()->prepare($sql);
-      $stmt->execute([
-          'username' => $this->username,
-          'password' => $this->password,
-          'email' => $this->email
-      ]);
-  }
+        $sql = "INSERT INTO users (username, password, email, role) VALUES (:username, :password, :email, :role)";
+        $stmt = Model::getPDO()->prepare($sql);
+        $stmt->execute([
+            'username' => $this->username,
+            'password' => $this->password,
+            'email' => $this->email,
+            'role' => $this->role
+        ]);
+    }
 
     // Database interactions
     public static function readAll() {
@@ -88,11 +99,11 @@ class ModelUser extends Model {
         return $stmt->fetch();
     }
 
-    public static function create($username, $password, $email = null) {
+    public static function create($username, $password, $email = null, $role = "user") {
         $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
         $stmt = Model::getPDO()->prepare($sql);
         $hashedPassword = password_hash($password,  PASSWORD_BCRYPT);
-        $stmt->execute(['username' => $username, 'password' => $hashedPassword, 'email' => $email]);
+        $stmt->execute(['username' => $username, 'password' => $hashedPassword, 'email' => $email, 'role' => $role]);
         return Model::getPDO()->lastInsertId();
     }
 }

@@ -4,7 +4,9 @@
     <div id="nav-menu">
       <a href="index.php">Accueil</a>
       <a href="?controller=ListOfMatches&action=descriptionRoute">Description</a>
-
+      <?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()): ?>
+      <a href="index.php?controller=Admin&action=adminRoute">Administration</a>
+      <?php endif; ?>
       <?php if (isset($_SESSION['user'])): ?>
       <a href="index.php?controller=Login&action=logout">Se déconnecter</a>
       <?php else: ?>
