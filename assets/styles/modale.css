@@ -1,0 +1,105 @@
+/* Style de la modale */
+.modal {
+  display: none; /* Cachée par défaut */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #f1f2f6;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #758bfd;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.modal-content input[type="text"], .modal-content select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.modal-content input[type="text"]:focus, .modal-content select:focus {
+  border-color: #758bfd;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #758bfd;
+  color: #f1f2f6;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #aeb8fe;
+}
+
+.modal-content .delete-button {
+  background-color: #d9534f;
+}
+
+.modal-content .delete-button:hover {
+  background-color: #f5c6cb;
+}
+
+.modal-content .modal-message {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button-group button {
+  width: auto;
+  padding: 0.8rem 1.5rem;
+}

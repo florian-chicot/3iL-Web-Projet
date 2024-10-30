@@ -1,5 +1,6 @@
 <?php
 require_once File::build_path(array("controller", "ControllerAdmin.php"));
+require_once File::build_path(array("controller", "ControllerAdminCompetition.php"));
 require_once File::build_path(array("controller", "ControllerError.php"));
 require_once File::build_path(array("controller", "ControllerHome.php"));
 require_once File::build_path(array("controller", "ControllerLogin.php"));

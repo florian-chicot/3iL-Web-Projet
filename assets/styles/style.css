@@ -402,3 +402,92 @@ p {
   border: 1px solid #f5c6cb;
   border-radius: 5px;
 }
+
+/* Table Style */
+/* .admin-management {
+  max-width: 800px;
+} */
+
+.admin-management .admin-table {
+  /* width: 90%; */
+  width: 100%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  background-color: #f1f2f6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-management .admin-table th, td {
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-management .admin-table th {
+  padding: 1rem 0.5rem;
+  background-color: #758bfd;
+  color: #f1f2f6;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.admin-management .admin-button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #758bfd;
+  color: #f1f2f6;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.admin-management .admin-button:hover {
+  background-color: #aeb8fe;
+}
+
+.admin-management .action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+/* Couleur de fond par défaut pour le bouton Modifier */
+.admin-management .edit-icon {
+  background-color: #758bfd;
+}
+
+/* Couleur de fond au survol pour le bouton Modifier */
+.admin-management .edit-icon:hover {
+  background-color: #aeb8fe;
+}
+
+/* Couleur de fond par défaut pour le bouton Supprimer */
+.admin-management .delete-icon {
+  background-color: #d9534f;
+}
+
+/* Couleur de fond au survol pour le bouton Supprimer */
+.admin-management .delete-icon:hover {
+  background-color: #f5c6cb;
+}
+
+/* Ajustement de la taille des SVG */
+.admin-management .action-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.admin-management .action-icon svg path {
+  fill: #f1f2f6; 
+}

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="assets/styles/style.css">
   <link rel="stylesheet" href="assets/styles/media-queries.css">
   <link rel="stylesheet" href="assets/styles/carousel.css">
+  <link rel="stylesheet" href="assets/styles/modale.css">
 </head>
 <body>
   <?php require_once '.include/Header.php'; ?>

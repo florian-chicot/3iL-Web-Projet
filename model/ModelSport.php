@@ -1,9 +1,7 @@
 <?php
-
 require_once 'Model.php';
 
 class ModelSport extends Model {
-
   private int $id;
   private string $nom;
 
@@ -14,21 +12,37 @@ class ModelSport extends Model {
     }
   }
 
-  // Getters and Setters
-  public function getId(): int {
-    return $this->id;
+  private function getClassName(): string {
+    return 'ModelSport';
   }
 
-  public function setId(int $id): void {
-    $this->id = $id;
+  // Getters
+  public function getId(): int {
+    return $this->id;
   }
 
   public function getNom(): string {
     return $this->nom;
   }
 
+  // Setters
+  public function setId(int $id): void {
+    $this->id = $id;
+  }
+
   public function setNom(string $nom): void {
     $this->nom = $nom;
+  }
+
+  // CRUD
+  // Method to create a new sport
+  public function create() {
+    $sql = "INSERT INTO sports (nom) VALUES (:nom)";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute([
+        'nom' => $this->nom
+    ]);
+    $this->id = Model::getPDO()->lastInsertId();
   }
 
   // Method to get all sports
@@ -46,7 +60,24 @@ class ModelSport extends Model {
 
     $stmt = Model::getPDO()->prepare($sql);
     $stmt->execute($values);
-    $stmt->setFetchMode(PDO::FETCH_CLASS, "ModelSport");
+    $stmt->setFetchMode(PDO::FETCH_CLASS, (new self())->getClassName());
     return $stmt->fetch();
+  }
+
+  // Method to update a sport
+  public function update() {
+      $sql = "UPDATE sports SET nom = :nom WHERE id = :id";
+      $stmt = Model::getPDO()->prepare($sql);
+      $stmt->execute([
+          'nom' => $this->nom,
+          'id' => $this->id
+      ]);
+  }
+
+  // Method to delete a sport
+  public static function delete($id) {
+      $sql = "DELETE FROM sports WHERE id = :id";
+      $stmt = Model::getPDO()->prepare($sql);
+      $stmt->execute(['id' => $id]);
   }
 }
