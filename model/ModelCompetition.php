@@ -44,13 +44,6 @@ class ModelCompetition extends Model {
     $this->sport = $sport;
   }
 
-  public static function competitionExists($nom) {
-    $sql = "SELECT COUNT(*) FROM competitions WHERE nom = :nom";
-    $stmt = Model::getPDO()->prepare($sql);
-    $stmt->execute(['nom' => $nom]);
-    return $stmt->fetchColumn() > 0; // Renvoie vrai si la compétition existe déjà
-}
-
   // CRUD
   // Method to add a new competition
   public static function create($nom, $sport) {

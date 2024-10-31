@@ -17,23 +17,6 @@ class ControllerAdminCompetition {
         // Récupère les données du formulaire
         $nom = $_POST['nom'];
         $sport = $_POST['sport'];
-    
-        // Vérification de la connexion à la base de données
-        try {
-            $pdo = Model::getPDO();
-        } catch (PDOException $e) {
-            die("Could not connect to the database: " . $e->getMessage());
-        }
-        
-        // Vérifie que le nom de la compétition est unique
-        if (ModelCompetition::competitionExists($nom)) {
-            $errorMessage = "Cette compétition existe déjà.";
-            $controller = 'adminCompetition';
-            $view = 'create'; // Retourne au formulaire de création
-            $pagetitle = 'Ajouter une compétition';
-            require File::build_path(array("view", "Base.php"));
-            return;
-        }
         
         // Crée une nouvelle compétition
         ModelCompetition::create($nom, $sport);
