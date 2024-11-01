@@ -403,13 +403,53 @@ p {
   border-radius: 5px;
 }
 
-/* Table Style */
-/* .admin-management {
-  max-width: 800px;
-} */
+/* Admin Section Styles */
+.admin-section {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f1f2f6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-title {
+  color: #758bfd;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Admin Links List */
+.admin-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.admin-link {
+  display: block;
+  padding: 0.8rem;
+  text-decoration: none;
+  text-align: center;
+  color: #f1f2f6;
+  background-color: #758bfd;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.admin-link:hover {
+  background-color: #aeb8fe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
 
 .admin-management .admin-table {
-  /* width: 90%; */
   width: 100%;
   margin: 2rem auto;
   border-collapse: collapse;
