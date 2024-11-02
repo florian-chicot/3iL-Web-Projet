@@ -26,44 +26,11 @@
     <?php endforeach; ?>
     </tbody>
   </table>
-  
-  <!-- Pagination -->
-  <div class="pagination">
-    <!-- Lien Précédent -->
-    <?php if ($page > 1): ?>
-      <a class="pagination-button-previous" href="?controller=AdminCompetition&action=readAll&page=<?php echo $page - 1; ?>">❮ Précédent</a>
-    <?php else: ?>
-      <span class="pagination-button-previous disabled">❮ Précédent</span>
-    <?php endif; ?>
-
-    <!-- Première page et points de suspension si nécessaire -->
-    <?php if ($page > 2): ?>
-      <a href="?controller=AdminCompetition&action=readAll&page=1">1</a>
-      <span>···</span>
-      <!-- <span>...</span -->
-    <?php elseif ($page == 2): ?>
-      <a href="?controller=AdminCompetition&action=readAll&page=1">1</a>
-    <?php endif; ?>
-
-    <!-- Page actuelle -->
-    <span class="active"><?php echo $page; ?></span>
-
-    <!-- Dernière page et points de suspension si nécessaire -->
-    <?php if ($page < $totalPages - 1): ?>
-      <span>···</span>
-      <!-- <span>...</span -->
-      <a href="?controller=AdminCompetition&action=readAll&page=<?php echo $totalPages; ?>"><?php echo $totalPages; ?></a>
-    <?php elseif ($page == $totalPages - 1): ?>
-      <a href="?controller=AdminCompetition&action=readAll&page=<?php echo $totalPages; ?>"><?php echo $totalPages; ?></a>
-    <?php endif; ?>
-
-    <!-- Lien Suivant -->
-    <?php if ($page < $totalPages): ?>
-      <a class="pagination-button-next" href="?controller=AdminCompetition&action=readAll&page=<?php echo $page + 1; ?>">Suivant ❯</a>
-    <?php else: ?>
-      <span class="pagination-button-next disabled">Suivant ❯</span>
-    <?php endif; ?>
-  </div>
+  <?php
+    require_once File::build_path(array("view", ".include", "Pagination.php"));
+    $baseUrl = '?controller=AdminCompetition&action=readAll';
+    echo renderPagination($page, $totalPages, $baseUrl);
+  ?>
 </section>
 
 <?php require_once File::build_path(array("view", "admin", "ModalAddCompetition.php")); ?>
