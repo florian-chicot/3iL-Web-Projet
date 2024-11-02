@@ -26,6 +26,8 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+</section>
+<section>
   <?php
     require_once File::build_path(array("view", ".include", "Pagination.php"));
     $baseUrl = '?controller=AdminCompetition&action=readAll';

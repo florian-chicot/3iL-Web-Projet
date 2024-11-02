@@ -1,9 +1,7 @@
 <?php
-
 require_once 'Model.php';
 
 class ModelMatch extends Model {
-
   private int $id;
   private string $sport;
   private $date_match;
@@ -29,149 +27,189 @@ class ModelMatch extends Model {
     }
   }
 
-  public function getId(): int {
-    return $this->id;
+  private function getClassName(): string {
+    return 'ModelMatch';
   }
 
-  public function setId(int $id): void {
-    $this->id = $id;
+  // Getters
+  public function getId(): int {
+    return $this->id;
   }
 
   public function getSport(): string {
     return $this->sport;
   }
 
-  public function setSport(string $sport): void {
-    $this->sport = $sport;
-  }
-
   public function getDateMatch() {
     return $this->date_match;
-  }
-
-  public function setDateMatch($date_match): void {
-    $this->date_match = $date_match;
   }
 
   public function getDomicileEquipe(): int {
     return $this->domicile_equipe;
   }
 
-  public function setDomicileEquipe(int $domicile_equipe): void {
-    $this->domicile_equipe = $domicile_equipe;
-  }
-
   public function getDomicileScore(): int {
     return $this->domicile_score;
-  }
-
-  public function setDomicileScore(int $domicile_score): void {
-    $this->domicile_score = $domicile_score;
   }
 
   public function getVisiteurEquipe(): int {
     return $this->visiteur_equipe;
   }
 
-  public function setVisiteurEquipe(int $visiteur_equipe): void {
-    $this->visiteur_equipe = $visiteur_equipe;
-  }
-
   public function getVisiteurScore(): int {
     return $this->visiteur_score;
-  }
-
-  public function setVisiteurScore(int $visiteur_score): void {
-    $this->visiteur_score = $visiteur_score;
   }
 
   public function getStade(): int {
     return $this->stade;
   }
 
-  public function setStade(int $stade): void {
-    $this->stade = $stade;
-  }
-
   public function getAffluence(): int {
     return $this->affluence;
-  }
-
-  public function setAffluence(int $affluence): void {
-    $this->affluence = $affluence;
   }
 
   public function getCompetition(): int {
     return $this->competition;
   }
 
+  // Setters
+  public function setId(int $id): void {
+    $this->id = $id;
+  }
+
+  public function setSport(string $sport): void {
+    $this->sport = $sport;
+  }
+
+  public function setDateMatch($date_match): void {
+    $this->date_match = $date_match;
+  }
+
+  public function setDomicileEquipe(int $domicile_equipe): void {
+    $this->domicile_equipe = $domicile_equipe;
+  }
+
+  public function setDomicileScore(int $domicile_score): void {
+    $this->domicile_score = $domicile_score;
+  }
+
+  public function setVisiteurEquipe(int $visiteur_equipe): void {
+    $this->visiteur_equipe = $visiteur_equipe;
+  }
+
+  public function setVisiteurScore(int $visiteur_score): void {
+    $this->visiteur_score = $visiteur_score;
+  }
+
+  public function setStade(int $stade): void {
+    $this->stade = $stade;
+  }
+
+  public function setAffluence(int $affluence): void {
+    $this->affluence = $affluence;
+  }
+
   public function setCompetition(int $competition): void {
     $this->competition = $competition;
   }
 
+  // CRUD
+  // Method to create a match
+  public function create() {
+    $sql = "INSERT INTO matchs (sport, date_match, domicile_equipe, domicile_score, visiteur_equipe, visiteur_score, stade, affluence, competition)
+            VALUES (:sport, :date_match, :domicile_equipe, :domicile_score, :visiteur_equipe, :visiteur_score, :stade, :affluence, :competition)";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute([
+      'sport' => $this->sport,
+      'date_match' => $this->date_match,
+      'domicile_equipe' => $this->domicile_equipe,
+      'domicile_score' => $this->domicile_score,
+      'visiteur_equipe' => $this->visiteur_equipe,
+      'visiteur_score' => $this->visiteur_score,
+      'stade' => $this->stade,
+      'affluence' => $this->affluence,
+      'competition' => $this->competition
+    ]);
+    $this->id = Model::getPDO()->lastInsertId();
+}
+
+  // Method to get all matches
   public static function readAll() {
-    $sql = "
-      SELECT 
-        matchs.id,
-        matchs.date_match,
-        matchs.sport,
-        matchs.domicile_score,
-        matchs.visiteur_score,
-        matchs.affluence,
-        e1.nom_court AS equipe_domicile,
-        e1.logo AS logo_domicile,
-        e2.nom_court AS equipe_visiteur,
-        e2.logo AS logo_visiteur,
-        competitions.nom AS competition
-      FROM matchs
-      JOIN equipes e1 ON matchs.domicile_equipe = e1.id
-      JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
-      JOIN competitions ON matchs.competition = competitions.id
-      ORDER BY matchs.date_match DESC
-    ";
+    $sql = "SELECT matchs.id, matchs.date_match, matchs.sport, matchs.domicile_score, matchs.visiteur_score, matchs.affluence,
+              e1.nom_court AS equipe_domicile, e1.logo AS logo_domicile, e2.nom_court AS equipe_visiteur,
+              e2.logo AS logo_visiteur, competitions.nom AS competition
+            FROM matchs
+            JOIN equipes e1 ON matchs.domicile_equipe = e1.id
+            JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
+            JOIN competitions ON matchs.competition = competitions.id
+            ORDER BY matchs.date_match DESC";
     $stmt = Model::getPDO()->prepare($sql); 
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  // Method to get a single match by ID
   public static function read($id) {
     $sql = "SELECT * FROM matchs WHERE matchs.id = :id";
-
     $values = array(
       "id" => $id
     );
-
     $stmt = Model::getPDO()->prepare($sql);
     $stmt->execute($values);
-    $stmt->setFetchMode(PDO::FETCH_CLASS, "ModelMatch");
+    $stmt->setFetchMode(PDO::FETCH_CLASS, (new self())->getClassName());
     return  $stmt->fetch();
   }
-}
 
-// $sql = "
-//   SELECT 
-//     matchs.id,
-//     matchs.date_match,
-//     matchs.sport,
-//     matchs.domicile_score,
-//     matchs.visiteur_score,
-//     matchs.affluence,
-//     e1.nom AS equipe_domicile,
-//     e1.trigramme AS equipe_domicile_tri,
-//     e1.ville AS ville_domicile,
-//     e1.logo AS logo_domicile,
-//     e2.nom AS equipe_visiteur,
-//     e2.trigramme AS equipe_visiteur_tri,
-//     e2.ville AS ville_visiteur,
-//     e2.logo AS logo_visiteur,
-//     stades.nom AS stade_nom,
-//     stades.ville AS stade_ville,
-//     stades.pays AS stade_pays,
-//     competitions.nom AS competition
-//   FROM matchs
-//   JOIN equipes e1 ON matchs.domicile_equipe = e1.id
-//   JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
-//   JOIN stades ON matchs.stade = stades.id
-//   JOIN competitions ON matchs.competition = competitions.id
-//   WHERE matchs.id = :id
-// ";
+  // Method to update a match
+  public function update() {
+    $sql = "UPDATE matchs SET sport = :sport, date_match = :date_match, domicile_equipe = :domicile_equipe,
+            domicile_score = :domicile_score, visiteur_equipe = :visiteur_equipe, visiteur_score = :visiteur_score,
+            stade = :stade, affluence = :affluence, competition = :competition WHERE id = :id";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute([
+      'sport' => $this->sport,
+      'date_match' => $this->date_match,
+      'domicile_equipe' => $this->domicile_equipe,
+      'domicile_score' => $this->domicile_score,
+      'visiteur_equipe' => $this->visiteur_equipe,
+      'visiteur_score' => $this->visiteur_score,
+      'stade' => $this->stade,
+      'affluence' => $this->affluence,
+      'competition' => $this->competition,
+      'id' => $this->id
+    ]);
+  }
+
+  // Method to delete a match
+  public static function delete($id) {
+    $sql = "DELETE FROM matchs WHERE id = :id";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute(['id' => $id]);
+  }
+  
+  // Récupère un nombre limité de matchs avec un décalage pour la pagination
+  public static function readAllPaginated($limit, $offset) {
+    $sql = "SELECT matchs.id, matchs.date_match, matchs.sport, matchs.domicile_score, matchs.visiteur_score, matchs.affluence,
+              e1.nom_court AS equipe_domicile, e1.logo AS logo_domicile, e2.nom_court AS equipe_visiteur,
+              e2.logo AS logo_visiteur, competitions.nom AS competition
+            FROM matchs
+            JOIN equipes e1 ON matchs.domicile_equipe = e1.id
+            JOIN equipes e2 ON matchs.visiteur_equipe = e2.id
+            JOIN competitions ON matchs.competition = competitions.id
+            ORDER BY matchs.date_match DESC
+            LIMIT :limit OFFSET :offset";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  // Compte le nombre total de matchs pour la pagination
+  public static function countMatches() {
+    $sql = "SELECT COUNT(*) FROM matchs";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+  }
+}

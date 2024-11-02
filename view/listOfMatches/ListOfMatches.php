@@ -1,7 +1,7 @@
 
 <section class="match-list">
   <ul class="match-list-card-container">
-    <?php foreach($matchs as $match): ?>
+    <?php foreach($matches as $match): ?>
     <li class="match-list-card">
       <!-- <a href="?controller=Matches&action=matchRoute($match['id'])" class="match-list-card-link"> -->
       <a href="?controller=Match&action=matchRoute&id=<?= $match['id'] ?>" class="match-list-card-link">
@@ -25,4 +25,11 @@
     </li>
     <?php endforeach; ?>
   </ul>
+</section>
+<section>
+  <?php
+    require_once File::build_path(array("view", ".include", "Pagination.php"));
+    $baseUrl = '?controller=listOfMatches&action=readAll';
+    echo renderPagination($page, $totalPages, $baseUrl);
+  ?>
 </section>

@@ -3,7 +3,7 @@
     <h1><a href="index.php"><img class="logo-img" src="logo.svg"></a></h1>
     <div id="nav-menu">
       <a href="index.php">Accueil</a>
-      <a href="?controller=ListOfMatches&action=descriptionRoute">Description</a>
+      <a href="?controller=ListOfMatches&action=readAll">Description</a>
       <?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()): ?>
       <a href="index.php?controller=Admin&action=adminRoute">Administration</a>
       <?php endif; ?>
