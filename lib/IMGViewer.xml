@@ -2,29 +2,29 @@
 <images>
     <image id="1">
         <size size="600x450">
-            <src>assets\images\IMGViewer\Match_2_600x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel1_600x450.jpg</src>
         </size>
         <size size="450x450">
-            <src>assets\images\IMGViewer\Match_2_450x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel1_450x450.jpg</src>
         </size>
-        <alt>Image 1</alt>
+        <alt>Rugbby, Finale de la Champions Cup 2024 : Stade toulousain vs Leinster Rugby</alt>
     </image>
     <image id="2">
         <size size="600x450">
-            <src>assets\images\IMGViewer\Match_9_600x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel2_600x450.jpg</src>
         </size>
         <size size="450x450">
-            <src>assets\images\IMGViewer\Match_9_450x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel2_450x450.jpg</src>
         </size>
-        <alt>Image 2</alt>
+        <alt>Basketball féminin, Demi-finale des Jeux Olympiques 2024 : France vs Belgique</alt>
     </image>
     <image id="3">
         <size size="600x450">
-            <src>assets\images\IMGViewer\Match_14_600x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel3_600x450.jpg</src>
         </size>
         <size size="450x450">
-            <src>assets\images\IMGViewer\Match_14_450x450.jpg</src>
+            <src>assets\images\IMGViewer\Carousel3_450x450.jpg</src>
         </size>
-        <alt>Image 3</alt>
+        <alt>Football, Seizièmes de finale retour de la Ligue Europa 2024 : Toulouse FC vs Benfica</alt>
     </image>
 </images>
