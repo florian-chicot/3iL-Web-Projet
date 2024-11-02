@@ -93,4 +93,23 @@ class ModelCompetition extends Model {
       $stmt = Model::getPDO()->prepare($sql);
       $stmt->execute($values);
   }
+  public static function readAllPaginated($limit, $offset) {
+    $sql = "SELECT competitions.id, competitions.nom, sports.nom AS sport
+            FROM competitions
+            JOIN sports ON competitions.sport = sports.id
+            ORDER BY sports.nom ASC
+            LIMIT :limit OFFSET :offset";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public static function countCompetitions() {
+    $sql = "SELECT COUNT(*) FROM competitions";
+    $stmt = Model::getPDO()->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
 }

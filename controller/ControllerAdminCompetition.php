@@ -2,10 +2,15 @@
 require_once File::build_path(array("model", "ModelCompetition.php"));
 
 class ControllerAdminCompetition {
-
-    // Affiche la liste de toutes les compétitions
+    
     public static function readAll() {
-        $competitions = ModelCompetition::readAll();
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limit = 6; // Nombre de compétitions par page
+        $offset = ($page - 1) * $limit;
+        $competitions = ModelCompetition::readAllPaginated($limit, $offset);
+        $totalCompetitions = ModelCompetition::countCompetitions();
+        $totalPages = ceil($totalCompetitions / $limit);
+        
         $controller = "admin";
         $view = "AdminCompetition";
         $pagetitle = "Gestion des compétitions";

@@ -449,6 +449,13 @@ p {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.admin-management {
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .admin-management .admin-table {
   width: 100%;
   margin: 2rem auto;
@@ -474,8 +481,23 @@ p {
   text-transform: uppercase;
 }
 
+.admin-management .admin-table th:nth-child(1),
+.admin-management .admin-table td:nth-child(1) {
+  width: 35%; /* Largeur pour la première colonne */
+}
+
+.admin-management .admin-table th:nth-child(2),
+.admin-management .admin-table td:nth-child(2) {
+  width: 50%; /* Largeur pour la deuxième colonne */
+}
+
+.admin-management .admin-table th:nth-child(3),
+.admin-management .admin-table td:nth-child(3) {
+  width: 15%; /* Largeur pour la troisième colonne */
+}
+
 .admin-management .admin-button {
-  width: 100%;
+  /* width: 100%; */
   padding: 0.5rem 1rem;
   background-color: #758bfd;
   color: #f1f2f6;
@@ -530,4 +552,57 @@ p {
 
 .admin-management .action-icon svg path {
   fill: #f1f2f6; 
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination a, .pagination span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #aeb8fe;
+}
+
+.pagination .pagination-button-previous, .pagination .pagination-button-next {
+  width: 100px;
+}
+
+.pagination .pagination-button-previous {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.pagination .pagination-button-next {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.pagination .active {
+  background-color: #f1f2f6;
+  color: #758bfd;
+  font-weight: bold;
+}
+
+.pagination .disabled {
+  color: #aaa;
+}
+
+.pagination .dots {
+  background: none;
+  color: #758bfd;
+  font-weight: normal;
 }
