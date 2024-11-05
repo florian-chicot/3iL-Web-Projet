@@ -6,6 +6,7 @@ class ControllerHome {
     $view = 'Home';
     $pagetitle = 'Accueil';
     $description ='Accueil du site web';
+    $stylesheets = ['carousel'];
     require File::build_path(array("view", "Base.php"));
   }
 }

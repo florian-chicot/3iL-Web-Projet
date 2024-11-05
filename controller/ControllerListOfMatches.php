@@ -5,7 +5,7 @@ class ControllerListOfMatches {
 
   public static function readAll() {
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    $limit = 10; // Nombre de matchs par page
+    $limit = 8; // Nombre de matchs par page
     $offset = ($page - 1) * $limit;
     $matches = ModelMatch::readAllPaginated($limit, $offset);
     $totalMatches = ModelMatch::countMatches();
@@ -15,6 +15,7 @@ class ControllerListOfMatches {
     $view = "ListOfMatches";
     $pagetitle = "Liste des matchs";
     $description ='';
+    $stylesheets = ['pagination'];
     require File::build_path(array("view", "Base.php"));
 }
 }

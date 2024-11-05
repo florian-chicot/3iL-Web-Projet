@@ -7,9 +7,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="assets/styles/style.css">
   <link rel="stylesheet" href="assets/styles/media-queries.css">
-  <link rel="stylesheet" href="assets/styles/carousel.css">
-  <link rel="stylesheet" href="assets/styles/modale.css">
-  <link rel="stylesheet" href="assets/styles/pagination.css">
+  <?php
+    if(isset($stylesheets)){
+      foreach ($stylesheets as $stylesheet){
+        echo '<link rel="stylesheet" href="assets/styles/'.$stylesheet.'.css">';
+      }
+    }
+  ?>
 </head>
 <body>
   <?php require_once '.include/Header.php'; ?>
