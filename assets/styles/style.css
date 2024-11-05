@@ -94,7 +94,6 @@ body {
 main {
   flex: 1;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 }
@@ -108,79 +107,95 @@ p {
   font-size: 16px;
 }
 
-  /* -- Match List Styles -- */
-  .match-list {
-    width: 90%;
-  }
+.home-section {
+  max-width: 600px;
+  text-align: justify;
+  text-justify: auto;
+  padding: 1rem;
+}
 
-  /* Card container styling */
-  .match-list-card-container {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-  }
+.home-section h2 {
+  text-align: center;
+}
 
-  /* Card styling */
-  .match-list-card {  
-    flex: 40%;
-    background: #EEEEEE;
-    border-radius: 15px;
-    margin: 0.5rem;
-    user-select: none;
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+.home-section p {
+  text-align: justify;
+  text-justify: inter-word;
+}
 
-  /* Rendre toute la carte cliquable */
-  .match-list-card-link {
-    text-decoration: none; /* Retire le soulignement du lien */
-    color: inherit; /* Hérite la couleur du texte du parent */
-    padding: 1rem 0;
-  }
+/* -- Match List Styles -- */
+.match-list {
+  width: 90%;
+}
 
-  /* Augmentation légère au survol */
-  .match-list-card:hover {
-    transform: scale(1.03);
-  }
+/* Card container styling */
+.match-list-card-container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
 
-  .match-list-card-match-info, .match-list-card-match-date-compet {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2em;
-  }
+/* Card styling */
+.match-list-card {  
+  flex: 40%;
+  background: #EEEEEE;
+  border-radius: 15px;
+  margin: 0.5rem;
+  user-select: none;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-  .match-list-card-equipe-domicile {
-    text-align: end;
-    width: 30%;
-  }
+/* Rendre toute la carte cliquable */
+.match-list-card-link {
+  text-decoration: none; /* Retire le soulignement du lien */
+  color: inherit; /* Hérite la couleur du texte du parent */
+  padding: 1rem 0;
+}
 
-  .match-list-card-equipe-visiteur {
-    text-align: start;
-    width: 30%;
-  }
+/* Augmentation légère au survol */
+.match-list-card:hover {
+  transform: scale(1.03);
+}
 
-  .match-list-card-score {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 20%;
-    max-width: 50px;
-  }
+.match-list-card-match-info, .match-list-card-match-date-compet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2em;
+}
 
-  .match-list-card-team-logo {
-    vertical-align: middle;
-    margin: 0 0.5em;
-    width: 10%;
-    max-width: 50px;
-  }
+.match-list-card-equipe-domicile {
+  text-align: end;
+  width: 30%;
+}
+
+.match-list-card-equipe-visiteur {
+  text-align: start;
+  width: 30%;
+}
+
+.match-list-card-score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 20%;
+  max-width: 50px;
+}
+
+.match-list-card-team-logo {
+  vertical-align: middle;
+  margin: 0 0.5em;
+  width: 10%;
+  max-width: 50px;
+}
 
 /* -- Match Detail Styles -- */
 .match-details {
