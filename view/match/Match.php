@@ -6,7 +6,18 @@
 <ul class="match-details-list">
     <li class="match-details-venue-container"><?= htmlspecialchars($stade->getNom()) ?></li>
     <li class="match-details-date-container"><?= date("j M Y", strtotime($match->getDateMatch())) ?></li>
-    <li class="match-details-image-container"><img src="assets\images\IMGViewer\Match_<?= htmlspecialchars($match->getId()).'_600x450' ?>.jpg" alt=""></li>
+    <li class="match-details-image-container">
+    <?php
+      $matchImage = "assets/images/IMGViewer/Match_" . htmlspecialchars($match->getId()) . "_600x450.jpg";
+      $competitionImage = "assets/images/IMGViewer/Competition_" . htmlspecialchars($competition->getNom()) . ".jpg";
+      // Vérification si l'image du match existe
+      if (file_exists($matchImage)) {
+        echo '<img src="' . $matchImage . '" alt="Image du match">';
+      } else {
+        echo '<img src="' . $competitionImage . '" alt="Image de la compétition">';
+      }
+    ?>
+    </li>
     <li class="match-details-score-container">
       <div class="match-details-team-home">
         <img class="match-details-team-logo" src="assets/images/logo_equipe/<?= htmlspecialchars($equipeDomicile->getLogo()) ?>.svg" class="team-logo" alt="Logo domicile">
