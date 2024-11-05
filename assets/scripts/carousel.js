@@ -13,11 +13,9 @@ function loadCarouselImages() {
         const alt = image.getElementsByTagName('alt')[0].textContent;
 
         // Vérifier la taille de l'écran pour charger l'image appropriée
-        if (window.matchMedia("(max-width: 600px)").matches) {
-          // Si l'écran est inférieur ou égal à 600px, charger l'image portrait (450x450)
+        if (window.matchMedia("(max-width: 600px)").matches) { // Si l'écran est <= à 600px, charger l'image portrait (450x450)
           src = image.querySelector('size[size="450x450"] src').textContent;
-        } else {
-          // Sinon, charger l'image paysage (1200x900)
+        } else { // Sinon, charger l'image paysage (1200x900)
           src = image.querySelector('size[size="600x450"] src').textContent;
         }
         
@@ -44,10 +42,6 @@ function loadCarouselImages() {
 // Fonction pour mettre à jour la position du carousel
 function updateCarousel(largeurEcran) {
   const slides = document.querySelectorAll('.carousel-slide');
-  const totalSlides = slides.length;
-  const slideWidth = slides[0].clientWidth;
-
-console.log(largeurEcran)
 
   document.getElementById('prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
@@ -68,59 +62,10 @@ loadCarouselImages();
 
 const mediaQuerryChangeWidth = 600;
 
-// XXX Redimensionner en temps réel donc nouvelle requete quand changement de format
-
-// window.addEventListener('resize', function() {
-//   // Nouvelle largeur
-//   const newScreenWidth = window.innerWidth;
-  
-//   // if ((currentScreenWidth <= mediaQuerryChangeWidth && newScreenWidth > mediaQuerryChangeWidth) || 
-//   //   (currentScreenWidth > mediaQuerryChangeWidth && newScreenWidth <= mediaQuerryChangeWidth)) {
-//   //   // Vider le contenu actuel du carousel
-//   //   carouselTrack.innerHTML = '';
-    
-//   //   // Recharger les images avec la bonne taille
-//   //   loadCarouselImages();
-
-  
-//   if ((currentScreenWidth <= mediaQuerryChangeWidth) || 
-//     (currentScreenWidth > mediaQuerryChangeWidth)) {
-//     // Vider le contenu actuel du carousel
-//     carouselTrack.innerHTML = '';
-    
-//     // Recharger les images avec la bonne taille
-//     loadCarouselImages();
-
-//   // Mettre à jour la largeur actuelle pour la prochaine vérification
-//     currentScreenWidth = newScreenWidth;
-//   }
-// });
-
 window.addEventListener('resize', function() {
-  // Nouvelle largeur
-  const newScreenWidth = window.innerWidth;
-  
-  // if ((currentScreenWidth <= mediaQuerryChangeWidth && newScreenWidth > mediaQuerryChangeWidth) || 
-  //   (currentScreenWidth > mediaQuerryChangeWidth && newScreenWidth <= mediaQuerryChangeWidth)) {
-  //   // Vider le contenu actuel du carousel
-  //   carouselTrack.innerHTML = '';
-    
-  //   // Recharger les images avec la bonne taille
-  //   loadCarouselImages();
-  
-  if ((currentScreenWidth <= mediaQuerryChangeWidth) || 
-    (currentScreenWidth > mediaQuerryChangeWidth)) {
-    // Vider le contenu actuel du carousel
-    // carouselTrack.innerHTML = '';
-    
-    // Recharger les images avec la bonne taille
-    // loadCarouselImages();
-
-    // Mettre à jour la largeur actuelle pour la prochaine vérification
-    
-  }
+  const newScreenWidth = window.innerWidth; // Nouvelle largeur
   currentScreenWidth = newScreenWidth;
-  // console.log(currentScreenWidth)
+  
   if (currentScreenWidth > mediaQuerryChangeWidth) {
     updateCarousel(mediaQuerryChangeWidth)
   } else {
