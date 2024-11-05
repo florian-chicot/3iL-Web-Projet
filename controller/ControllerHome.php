@@ -1,4 +1,6 @@
 <?php
+require_once File::build_path(array("model", "ModelPresentationContent.php"));
+
 class ControllerHome {
 
   public static function homeRoute() {
@@ -7,6 +9,7 @@ class ControllerHome {
     $pagetitle = 'Accueil';
     $description ='Accueil du site web';
     $stylesheets = ['carousel'];
+    $presentationContents = ModelPresentationContent::readAll();
     require File::build_path(array("view", "Base.php"));
   }
 }
