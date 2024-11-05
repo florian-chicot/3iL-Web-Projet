@@ -10,7 +10,7 @@
   <?php
     if(isset($stylesheets)){
       foreach ($stylesheets as $stylesheet){
-        echo '<link rel="stylesheet" href="assets/styles/'.$stylesheet.'.css">';
+        echo '<link rel="stylesheet" href="assets/styles/'.$stylesheet.'.min.css">';
       }
     }
   ?>

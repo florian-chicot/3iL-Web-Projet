@@ -16,4 +16,4 @@
     <span class="burger-menu-btn" onclick="toggleMenu()">&#9776;</span>
   </nav>
 </header>
-<script src="assets/scripts/header.js"></script>
+<script src="assets/scripts/header.min.js"></script>

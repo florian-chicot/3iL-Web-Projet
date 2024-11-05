@@ -39,4 +39,4 @@
 <?php require_once File::build_path(array("view", "admin", "ModalUpdateCompetition.php")); ?>
 <?php require_once File::build_path(array("view", "admin", "ModalDeleteCompetition.php")); ?>
 
-<script src="assets/scripts/modal.js"></script>
+<script src="assets/scripts/modal.min.js"></script>

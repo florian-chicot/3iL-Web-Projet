@@ -38,7 +38,6 @@ window.onclick = function(event) {
 function openUpdateModal(id, nom, sportName) {
   document.getElementById("updateCompetitionId").value = id;
   document.getElementById("updateNom").value = nom;
-  // document.getElementById("updateSport").value = sportName;
   const updateSportSelect = document.getElementById("updateSport");
   for (let i = 0; i < updateSportSelect.options.length; i++) {
     if (updateSportSelect.options[i].text === sportName) {
@@ -47,7 +46,6 @@ function openUpdateModal(id, nom, sportName) {
     }
   }
   document.getElementById("modalUpdateForm").style.display = "flex";
-  // console.log(id, nom, sportName)
 }
 
 // Fonction pour fermer la modale de mise à jour
