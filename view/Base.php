@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $pagetitle ?></title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="stylesheet" href="assets/styles/media-queries.css">
+  <link rel="stylesheet" href="assets/styles/style.min.css">
+  <link rel="stylesheet" href="assets/styles/media-queries.min.css">
   <?php
     if(isset($stylesheets)){
       foreach ($stylesheets as $stylesheet){
