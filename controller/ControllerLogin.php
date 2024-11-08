@@ -9,7 +9,8 @@ class ControllerLogin {
     $controller = 'login';
     $view = 'Login';
     $pagetitle = 'Connexion';
-    $errorMessage = null; // Pour stocker les messages d'erreur
+    $errorMessage = null;
+    $stylesheets = ['form'];
     require File::build_path(array("view", "Base.php"));
   }
 

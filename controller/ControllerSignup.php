@@ -9,6 +9,7 @@ class ControllerSignup {
     $view = 'Signup';
     $pagetitle = 'Inscription';
     $errorMessage = null;
+    $stylesheets = ['form'];
     require File::build_path(array("view", "Base.php"));
   }
 

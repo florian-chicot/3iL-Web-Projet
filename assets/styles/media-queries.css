@@ -108,6 +108,47 @@
   footer nav p {
     font-size: 0.9rem;
   }
+  
+  .contact-form,
+  .login-signup-form {
+    padding: 0.5rem;
+    max-width: 90%;
+    margin: 0.5rem auto;
+    box-shadow: none;
+    border-radius: 5px;
+  }
+
+  .contact-form h2,
+  .login-signup-form h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form textarea,
+  .login-signup-form input[type="text"],
+  .login-signup-form input[type="password"] {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form textarea {
+    min-height: 80px;
+    max-height: 150px;
+  }
+
+  .contact-form button,
+  .login-signup-form button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .contact-status-message,
+  .login-signup-error-message {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
 }
 
 @media (max-width: 480px) {

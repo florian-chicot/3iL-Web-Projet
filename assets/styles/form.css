@@ -35,9 +35,9 @@
 }
 
 .contact-form textarea {
-  resize: vertical; /* Permet le redimensionnement uniquement vertical */
-  min-height: 100px; /* Hauteur minimale */
-  max-height: 300px; /* Hauteur maximale (optionnel) */
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
 }
 
 .contact-form input[type="text"]:focus, .contact-form textarea:focus {
@@ -45,7 +45,6 @@
   outline: none;
 }
 
-/* Button styling */
 .contact-form button {
   width: 100%;
   padding: 0.8rem;
@@ -118,7 +117,6 @@
   outline: none;
 }
 
-/* Button styling */
 .login-signup-form button {
   width: 100%;
   padding: 0.8rem;
@@ -137,7 +135,6 @@
   background-color: #aeb8fe;
 }
 
-/* Link styling for signup */
 .login-signup-text, .login-signup-link {
   margin-top: 1rem;
   font-size: 0.9rem;
