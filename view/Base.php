@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="assets/styles/print.min.css" media="print">
   <link rel="stylesheet" href="assets/styles/style.min.css">
+  <link rel="stylesheet" href="assets/styles/polices.min.css">
   <link rel="stylesheet" href="assets/styles/media-queries.min.css">
   <?php
     if(isset($stylesheets)){

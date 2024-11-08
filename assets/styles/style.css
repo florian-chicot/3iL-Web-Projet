@@ -98,15 +98,6 @@ main {
   flex-direction: column;
 }
 
-h2 {
-  text-wrap: balance;
-}
-
-p {
-  margin: 0px 0;
-  font-size: 16px;
-}
-
 .home-section {
   max-width: 600px;
   text-align: justify;
@@ -331,94 +322,6 @@ p {
   font-size: 5rem;
 }
 
-.login-signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 2rem auto;
-  background-color: #f1f2f6;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-signup-form h2 {
-  margin-bottom: 1rem;
-  color: #758bfd;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.login-signup-form input[type="text"],
-.login-signup-form input[type="password"] {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #333;
-  background-color: #f9f9f9;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.3s;
-}
-
-.login-signup-form input[type="text"]:focus,
-.login-signup-form input[type="password"]:focus {
-  border-color: #758bfd;
-  outline: none;
-}
-
-/* Button styling */
-.login-signup-form button {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #758bfd;
-  color: #f1f2f6;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.login-signup-form button:hover {
-  background-color: #aeb8fe;
-}
-
-/* Link styling for signup */
-.login-signup-text, .login-signup-link {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-
-.login-signup-link {
-  color: #758bfd;
-  text-decoration: none;
-}
-
-.login-signup-link:hover {
-  text-decoration: underline;
-}
-
-.login-signup-error-message {
-  color: #d9534f;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  text-align: center;
-  background-color: #f8d7da;
-  padding: 0.5rem;
-  border: 1px solid #f5c6cb;
-  border-radius: 5px;
-}
-
 /* Admin Section Styles */
 .admin-section {
   width: 100%;
@@ -513,7 +416,6 @@ p {
 }
 
 .admin-management .admin-button {
-  /* width: 100%; */
   padding: 0.5rem 1rem;
   background-color: #758bfd;
   color: #f1f2f6;
@@ -568,81 +470,4 @@ p {
 
 .admin-management .action-icon svg path {
   fill: #f1f2f6; 
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 2rem auto;
-  background-color: #f1f2f6;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h2 {
-  margin-bottom: 1rem;
-  color: #758bfd;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.contact-form input[type="text"], .contact-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #333;
-  background-color: #f9f9f9;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.3s;
-}
-
-.contact-form textarea {
-  resize: vertical; /* Permet le redimensionnement uniquement vertical */
-  min-height: 100px; /* Hauteur minimale */
-  max-height: 300px; /* Hauteur maximale (optionnel) */
-}
-
-.contact-form input[type="text"]:focus, .contact-form textarea:focus {
-  border-color: #758bfd;
-  outline: none;
-}
-
-/* Button styling */
-.contact-form button {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #758bfd;
-  color: #f1f2f6;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #aeb8fe;
-}
-
-.contact-status-message {
-  color: #d9534f;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  text-align: center;
-  background-color: #f8d7da;
-  padding: 0.5rem;
-  border: 1px solid #f5c6cb;
-  border-radius: 5px;
 }

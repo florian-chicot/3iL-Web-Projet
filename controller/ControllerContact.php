@@ -7,6 +7,7 @@ class ControllerContact {
     $controller = 'contact';
     $view = 'Contact';
     $pagetitle = 'Contactez-nous';
+    $stylesheets = ['form'];
     require File::build_path(array("view", "Base.php"));
   }
   
