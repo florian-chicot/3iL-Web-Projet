@@ -20,3 +20,11 @@ Il peut trouver une information erronée et souhaite contacter le support pour s
 * Les pages web appellent les fichiers CSS et JS minifiés, mais dans le dossier assets/scripts ou assets/styles ces fichiers existent également sous forme non minifiées.
 
 * Les images n'ont pas été commit dans le dépôt Git afin de maintenir un dépôt léger, éviter les et suivre les bonnes pratiques de gestion de ressources volumineuses.
+
+* Pour refaire le site à partir de l'export de la base de données, changez les informations de connextion à la BDD dans model/Model.php
+```
+  public static function init() {
+    $dsn = 'mysql:host=YOUR_DATABASE_HOST;dbname=YOUR_DATABASE_NAME
+    $user = YOUR_DATABASE_USER;
+    $password = YOUR_DATABASE_PASSWORD;
+  }```
