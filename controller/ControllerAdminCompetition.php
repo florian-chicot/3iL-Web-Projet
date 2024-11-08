@@ -5,7 +5,7 @@ class ControllerAdminCompetition {
     
     public static function readAll() {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $limit = 15; // Nombre de compétitions par page
+        $limit = 10; // Nombre de compétitions par page
         $offset = ($page - 1) * $limit;
         $competitions = ModelCompetition::readAllPaginated($limit, $offset);
         $totalCompetitions = ModelCompetition::countCompetitions();
