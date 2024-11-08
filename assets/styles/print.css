@@ -1,3 +1,9 @@
-@page {
-  margin: 10%
+@media print {
+  header, footer, .pagination {
+    display: none;
+  }
+  
+  @page {
+    margin: 1%;
+  }
 }

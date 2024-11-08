@@ -1,1 +1,1 @@
-@page{margin:10%}
+@media print{.pagination,footer,header{display:none}@page{margin:1%}}
