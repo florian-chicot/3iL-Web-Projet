@@ -18,3 +18,5 @@ Il peut trouver une information erronée et souhaite contacter le support pour s
 ## Informations supplémentaires
 
 * Les pages web appellent les fichiers CSS et JS minifiés, mais dans le dossier assets/scripts ou assets/styles ces fichiers existent également sous forme non minifiées.
+
+* Les images n'ont pas été commit dans le dépôt Git afin de maintenir un dépôt léger, éviter les et suivre les bonnes pratiques de gestion de ressources volumineuses.
