@@ -1,5 +1,6 @@
 <?php
 require_once File::build_path(array("model", "ModelContact.php"));
+require_once File::build_path(array("model", "ModelContactInfo.php"));
 
 class ControllerContact {
 
@@ -8,6 +9,7 @@ class ControllerContact {
     $view = 'Contact';
     $pagetitle = 'Contactez-nous';
     $stylesheets = ['form'];
+    $contactInfos = ModelContactInfo::readAll();
     require File::build_path(array("view", "Base.php"));
   }
   

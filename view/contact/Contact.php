@@ -13,4 +13,9 @@
       <button type="submit">Envoyer le message</button>
     </div>
   </form>
+  <div>
+    <?php foreach ($contactInfos as $info): ?>
+      <p><?php echo htmlspecialchars($info['name']); ?> : <?php echo htmlspecialchars($info['content']); ?></p>
+    <?php endforeach; ?>
+  </div>
 </section>
