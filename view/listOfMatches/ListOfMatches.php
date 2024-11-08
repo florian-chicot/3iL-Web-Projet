@@ -1,9 +1,9 @@
 
 <section class="match-list">
+  <h2>Liste des matchs</h2>
   <ul class="match-list-card-container">
     <?php foreach($matches as $match): ?>
     <li class="match-list-card">
-      <!-- <a href="?controller=Matches&action=matchRoute($match['id'])" class="match-list-card-link"> -->
       <a href="?controller=Match&action=matchRoute&id=<?= $match['id'] ?>" class="match-list-card-link">
         <div id="score-info" class="match-list-card-match-info">
           <p id="equipe-domicile" class="match-list-card-equipe-domicile"><?= htmlspecialchars($match['equipe_domicile']) ?></p>
