@@ -27,4 +27,5 @@ Il peut trouver une information erronée et souhaite contacter le support pour s
     $dsn = 'mysql:host=YOUR_DATABASE_HOST;dbname=YOUR_DATABASE_NAME
     $user = YOUR_DATABASE_USER;
     $password = YOUR_DATABASE_PASSWORD;
-  }```
+  }
+```
